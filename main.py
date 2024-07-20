@@ -1,5 +1,5 @@
-from coin_stat.helpers import get_token_amount, update_holdings, save_user_data, load_user_data
-from token_insight.helpers import load_coin_ratings, calculate_final_scores, display_final_scores, show_ratings
+from coinstat.helpers import get_token_amount, update_holdings, save_user_data, load_user_data
+from tokeninsight.helpers import load_coin_ratings, calculate_final_scores, display_final_scores, show_ratings
 import os
 import pandas as pd
 
@@ -84,7 +84,7 @@ def main():
         save_user_data(user_file, user_data)
 
     # Load coin ratings and calculate final scores
-    coin_ratings_file = "/Users/cyh/Desktop/portfolio_manager/token_insight/coin_rating.csv"
+    coin_ratings_file = "/Users/cyh/Desktop/portfolio_manager/tokeninsight/coin_rating.csv"
     show_ratings(user_file, coin_ratings_file)
 
 if __name__ == "__main__":
