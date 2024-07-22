@@ -37,7 +37,7 @@ Navigate to the project directory:
 Copy code
 cd portfolio_manager
 Install the required dependencies (if any):
-
+```
 ```bash
 
 pip install -r requirements.txt
