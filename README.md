@@ -29,19 +29,14 @@ portfolio_manager/
 Clone the repository:
 
 ```bash
-Copy code
 git clone https://github.com/yourusername/portfolio_manager.git
 ```
 Navigate to the project directory:
 ```bash
-Copy code
 cd portfolio_manager
 Install the required dependencies (if any):
 ```
-```bash
 
-pip install -r requirements.txt
-```
 ## Usage
 Run the main script:
 
