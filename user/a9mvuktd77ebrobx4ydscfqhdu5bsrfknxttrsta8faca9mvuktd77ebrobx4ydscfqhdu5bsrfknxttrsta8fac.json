@@ -1,0 +1,21 @@
+{
+    "name": "a9mvuktd77ebrobx4ydscfqhdu5bsrfknxttrsta8faca9mvuktd77ebrobx4ydscfqhdu5bsrfknxttrsta8fac",
+    "tokens": [
+        {
+            "coinId": "solana",
+            "amount": 0,
+            "chain": "Solana",
+            "name": "Solana",
+            "symbol": "SOL",
+            "price": 178.50540026654917,
+            "priceBtc": 0.002650459776655169,
+            "imgUrl": "https://static.coinstats.app/coins/1701234596791.png",
+            "pCh24h": 4.07,
+            "rank": 5,
+            "volume": 5480708467.069662,
+            "balanceUSD": 0.0,
+            "address": "a9mvuktd77ebrobx4ydscfqhdu5bsrfknxttrsta8fac",
+            "connectionId": "solana"
+        }
+    ]
+}

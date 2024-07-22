@@ -71,6 +71,8 @@ def display_token_holdings(token_holdings):
         print("-" * 50)
 
 def save_user_data(file_path, data):
+    # Filter out tokens with balanceUSD less than MIN_TOKEN_VALUE_USD
+    data['tokens'] = [token for token in data['tokens'] if token['balanceUSD'] is not None and token['balanceUSD'] >= MIN_TOKEN_VALUE_USD]
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
 
