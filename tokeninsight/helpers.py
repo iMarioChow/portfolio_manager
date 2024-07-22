@@ -20,8 +20,11 @@ def load_coin_ratings(csv_file):
     return df
 
 def calculate_final_scores(user_tokens, coin_ratings):
-    valid_tokens = [t for t in user_tokens if t['balanceUSD'] is not None]
+    valid_tokens = [t for t in user_tokens if t['balanceUSD'] is not None and t['balanceUSD'] > 0]
     total_balance_usd = sum(t['balanceUSD'] for t in valid_tokens)
+
+    if total_balance_usd == 0:
+        return []
 
     final_scores = []
     for token in valid_tokens:
@@ -52,7 +55,7 @@ def calculate_final_scores(user_tokens, coin_ratings):
 
 def display_final_scores(final_scores):
     if not final_scores:
-        print("No valid token holdings found.")
+        print("Empty wallet.")
         return
 
     overall_scores = {

@@ -1,27 +1,21 @@
 import requests
-import pandas as pd
 import json
-import os
 
 DEFAULT_COIN_STAT_API_KEY = "G9bXc1n6Gp6xgMBpPrdZi6R7BJ9R0HlUIg2n599/+EI="
 MIN_TOKEN_VALUE_USD = 0.2
 
 def get_token_amount(address, connection_id, api_key=DEFAULT_COIN_STAT_API_KEY):
-    url = 'https://openapiv1.coinstats.app/wallet/balance'
+    url = f'https://openapiv1.coinstats.app/wallet/balance?address={address}&connectionId={connection_id}'
+
     headers = {
-        'X-API-KEY': api_key,
-        'accept': 'application/json'
-    }
-    params = {
-        'address': address,
-        'connectionId': connection_id
+        "accept": "application/json",
+        "X-API-KEY": api_key
     }
 
-    response = requests.get(url, headers=headers, params=params)
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
-        data = response.json()
-        return data
+        return response.json()
     else:
         print(f"Failed to retrieve data: Status Code {response.status_code}")
         print(f"Response: {response.text}")
@@ -38,12 +32,16 @@ def update_holdings(user_data):
         try:
             result = get_token_amount(address, connection_id)
             if result:
+                updated = False
                 for updated_token in result:
                     if 'symbol' in updated_token and updated_token['symbol'].upper() == token['symbol'].upper():
                         token['amount'] = updated_token['amount']
                         token['price'] = updated_token['price']
                         token['balanceUSD'] = updated_token['amount'] * updated_token['price'] if 'price' in updated_token else None
+                        updated = True
                         break
+                if not updated:
+                    print(f"Token {token['symbol']} not found in the response.")
         except (ConnectionError, ValueError) as e:
             print(e)
     return user_data

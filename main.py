@@ -1,10 +1,15 @@
-from coinstat.helpers import get_token_amount, update_holdings, save_user_data, load_user_data
-from tokeninsight.helpers import load_coin_ratings, calculate_final_scores, display_final_scores, show_ratings
 import os
 import pandas as pd
+from coinstat.helpers import get_token_amount, update_holdings, save_user_data, load_user_data
+from tokeninsight.helpers import load_coin_ratings, calculate_final_scores, display_final_scores, show_ratings
 
 def main():
-    user_dir = "/Users/cyh/Desktop/portfolio_manager/user"
+    # Define relative paths
+    script_dir = os.path.dirname(__file__)
+    user_dir = os.path.join(script_dir, "user")
+    blockchains_file = os.path.join(script_dir, "coinstat", "blockchains.csv")
+    coin_ratings_file = os.path.join(script_dir, "tokeninsight", "coin_rating.csv")
+    
     if not os.path.exists(user_dir):
         os.makedirs(user_dir)
 
@@ -23,12 +28,10 @@ def main():
         user_data = {'name': user_name, 'tokens': []}
 
         while True:
-            address = input("Enter the address (or type 'FINISH' to calculate and display portfolio): ").strip().lower()
+            address = input("Enter the address (or type 'FINISH' to calculate and display portfolio): ").strip()
             if address == 'finish':
                 break
 
-            # Loop through all connectionId and get valid tokens
-            blockchains_file = "/Users/cyh/Desktop/portfolio_manager/coin_stat/blockchains.csv"
             blockchains_df = pd.read_csv(blockchains_file)
 
             for index, row in blockchains_df.iterrows():
@@ -49,42 +52,12 @@ def main():
                         print(f"Tokens for {chain_name} ({connection_id}) added.")
                 except (ConnectionError, ValueError) as e:
                     print(e)
-
-        save_user_data(user_file, user_data)
-
-    add_new_tokens = input("Do you want to add new tokens? (yes/no): ").strip().lower()
-    if add_new_tokens == 'yes':
-        while True:
-            address = input("Enter the address (or type 'FINISH' to stop adding tokens): ").strip().lower()
-            if address == 'finish':
-                break
-
-            blockchains_file = "/Users/cyh/Desktop/portfolio_manager/coin_stat/blockchains.csv"
-            blockchains_df = pd.read_csv(blockchains_file)
-
-            for index, row in blockchains_df.iterrows():
-                connection_id = row['connectionId']
-                chain_name = row['name']
-                try:
-                    result = get_token_amount(address, connection_id)
-                    if result:
-                        for token in result:
-                            if 'price' in token:
-                                token['balanceUSD'] = token['amount'] * token['price']
-                            else:
-                                token['balanceUSD'] = None
-                            token['chain'] = chain_name
-                            token['address'] = address
-                            token['connectionId'] = connection_id
-                        user_data['tokens'].extend(result)
-                        print(f"Tokens for {chain_name} ({connection_id}) added.")
-                except (ConnectionError, ValueError) as e:
-                    print(e)
+                except Exception as e:
+                    print(f"Failed to retrieve data: {e}")
 
         save_user_data(user_file, user_data)
 
     # Load coin ratings and calculate final scores
-    coin_ratings_file = "/Users/cyh/Desktop/portfolio_manager/tokeninsight/coin_rating.csv"
     show_ratings(user_file, coin_ratings_file)
 
 if __name__ == "__main__":
