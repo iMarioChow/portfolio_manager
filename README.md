@@ -29,7 +29,7 @@ portfolio_manager/
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/portfolio_manager.git
+git clone https://github.com/iMarioChow/portfolio_manager.git
 ```
 Navigate to the project directory:
 ```bash
