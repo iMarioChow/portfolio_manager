@@ -79,3 +79,70 @@ def save_user_data(file_path, data):
 def load_user_data(file_path):
     with open(file_path, 'r') as file:
         return json.load(file)
+
+def add_tokens(user_data, blockchains_file):
+    blockchains_df = pd.read_csv(blockchains_file)
+    while True:
+        address = input("Enter the address (or type 'FINISH' to calculate and display portfolio): ").strip()
+        if address.lower() == 'finish':
+            break
+
+        if address.startswith("bc"):
+            connection_id = "bitcoin"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("cosmos"):
+            connection_id = "cosmos"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("inj"):
+            connection_id = "injective-wallet"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("dym"):
+            connection_id = "dymension-wallet"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("celestia"):
+            connection_id = "celestia-wallet"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("osmo"):
+            connection_id = "osmosis-wallet"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("stride"):
+            connection_id = "stride-wallet"
+            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            handle_address(address, connection_id, chain_name, user_data)
+        elif address.startswith("0x"):
+            is_evm = input("Is this an EVM address? (yes/no): ").strip().lower() == 'yes'
+            evm_filter = 1 if is_evm else 0
+            for index, row in blockchains_df[blockchains_df['EVM'] == evm_filter].iterrows():
+                connection_id = row['connectionId']
+                chain_name = row['name']
+                handle_address(address, connection_id, chain_name, user_data)
+        else:
+            for index, row in blockchains_df[blockchains_df['EVM'] == 0].iterrows():
+                connection_id = row['connectionId']
+                chain_name = row['name']
+                handle_address(address, connection_id, chain_name, user_data)
+
+def handle_address(address, connection_id, chain_name, user_data):
+    try:
+        result = get_token_amount(address, connection_id)
+        if result:
+            for token in result:
+                if 'price' in token:
+                    token['balanceUSD'] = token['amount'] * token['price']
+                else:
+                    token['balanceUSD'] = None
+                token['chain'] = chain_name  # Add chain name to token data
+                token['address'] = address  # Add address to token data
+                token['connectionId'] = connection_id  # Add connectionId to token data
+            user_data['tokens'].extend(result)
+            print(f"Tokens for {chain_name} ({connection_id}) added.")
+    except (ConnectionError, ValueError) as e:
+        print(e)
+    except Exception as e:
+        print(f"Failed to retrieve data: {e}")

@@ -43,7 +43,7 @@ digibyte,DigiByte,0
 bitcoin_sv,Bitcoin SV,0
 celsius,Celsius Network,0
 algorand,Algorand,0
-cosmos,Cosmos,1
+cosmos,Cosmos,0
 zilliqa,Zilliqa,1
 ontology,Ontology  (ONTO),1
 band_protocol,Band Protocol,1
@@ -72,16 +72,16 @@ manta-wallet,Manta Pacific,1
 scroll-wallet,Scroll,1
 kaspa-wallet,Kaspa,0
 blast-wallet,Blast,1
-osmosis-wallet,Osmosis,1
+osmosis-wallet,Osmosis,0
 juno-wallet,Juno,0
-injective-wallet,Injective,1
+injective-wallet,Injective,0
 celestia-wallet,Celestia,0
 cronos-cosmos-wallet,Cronos (Pos),1
 sei-wallet,Sei,0
 kujira-wallet,Kujira,1
 akash-wallet,Akash,0
 dymension-evm-wallet,Dymension (EVM),1
-dymension-wallet,Dymension,1
+dymension-wallet,Dymension,0
 bittensor-wallet,BitTensor,1
 dydx-wallet,DyDx,0
 kava-cosmos-wallet,Kava (Cosmos),1
