@@ -1,103 +1,103 @@
-connectionId,name
-binacesmartchain,BNB Smart Chain
-doge-wallet,Doge
-polygon-wallet,Polygon
-elrond-wallet,MultiversX
-solana,Solana
-kusama-wallet,Kusama
-avalanche-wallet,Avalanche
-fantom-wallet,Fantom
-arbitrum-wallet,Arbitrum
-heco-wallet,Heco
-moonriver-wallet,Moonriver
-celo-wallet,Celo
-terra-wallet,Terra Classic
-cronos-wallet,Cronos
-boba-wallet,Boba
-metis-wallet,Metis
-gnosis-chain,Gnosis Chain
-terra-wallet-2,Terra 2  (BETA)
-optimism-wallet,Optimism
-evmos-wallet,Evmos  (EVM)
-klaytn-wallet,Klaytn
-okx-wallet,OKX Chain
-harmony-wallet,Harmony
-aurora-wallet,Aurora
-aptos-wallet,Aptos
-bitgert-wallet,Bitgert
-moonbeam-wallet,Moonbeam
-near-wallet,NEAR
-acala-wallet,Acala
-canto-wallet,Canto
-zksync-era-wallet,zkSync Era
-zkevm-polygon-wallet,zkEvm Polygon
-arbitrum-nova-wallet,Arbitrum Nova
-sui-wallet,Sui
-pulsechain-wallet,PulseChain
-kava-wallet,Kava EVM
-ton-wallet,TON
-starknet-wallet,Starknet
-neo,NEO
-iota,IOTA
-digibyte,DigiByte
-bitcoin_sv,Bitcoin SV
-celsius,Celsius Network
-algorand,Algorand
-cosmos,Cosmos
-zilliqa,Zilliqa
-ontology,Ontology  (ONTO)
-band_protocol,Band Protocol
-ethereum_classic,Ethereum Classic
-bnb_beacon,BNB Beacon Chain
-bitcoin_cash,Bitcoin Cash
-xrp,XRP
-litecoin,Litecoin
-dash,Dash
-cardano,Cardano
-vechain,VeChain
-tron,Tron
-waves,Waves
-eos,EOS
-tezos,Tezos
-stellar,Stellar
-polkadot,Polkadot
-bitcoin,Bitcoin
-ethereum,Ethereum
-base-wallet,Base
-linea-wallet,Linea
-opbnb-wallet,opBNB
-mantle-wallet,Mantle
-zora-wallet,Zora
-manta-wallet,Manta Pacific
-scroll-wallet,Scroll
-kaspa-wallet,Kaspa
-blast-wallet,Blast
-osmosis-wallet,Osmosis
-juno-wallet,Juno
-injective-wallet,Injective
-celestia-wallet,Celestia
-cronos-cosmos-wallet,Cronos (Pos)
-sei-wallet,Sei
-kujira-wallet,Kujira
-akash-wallet,Akash
-dymension-evm-wallet,Dymension (EVM)
-dymension-wallet,Dymension
-bittensor-wallet,BitTensor
-dydx-wallet,DyDx
-kava-cosmos-wallet,Kava (Cosmos)
-fetch-wallet,Fetch.ai
-axelar-wallet,Axelar
-stride-wallet,Stride
-thorchain-wallet,THORChain
-evmos-cosmos-wallet,Evmos (Cosmos)
-internet-computer-wallet,Internet Computer
-fio-wallet,FIO
-immutable-wallet,Immutable
-degen-wallet,Degen
-stacks-wallet,Stacks
-merlin-wallet,Merlin
-rootstock-wallet,Rootstock
-ronin-wallet,Ronin
-beam-wallet,Beam
-mode-wallet,Mode
-karak-wallet,Karak
+connectionId,name,EVM
+binacesmartchain,BNB Smart Chain,1
+doge-wallet,Doge,1
+polygon-wallet,Polygon,1
+elrond-wallet,MultiversX,0
+solana,Solana,0
+kusama-wallet,Kusama,0
+avalanche-wallet,Avalanche,1
+fantom-wallet,Fantom,1
+arbitrum-wallet,Arbitrum,1
+heco-wallet,Heco,0
+moonriver-wallet,Moonriver,1
+celo-wallet,Celo,1
+terra-wallet,Terra Classic,0
+cronos-wallet,Cronos,1
+boba-wallet,Boba,1
+metis-wallet,Metis,1
+gnosis-chain,Gnosis Chain,1
+terra-wallet-2,Terra 2  (BETA),1
+optimism-wallet,Optimism,1
+evmos-wallet,Evmos  (EVM),1
+klaytn-wallet,Klaytn,1
+okx-wallet,OKX Chain,1
+harmony-wallet,Harmony,1
+aurora-wallet,Aurora,1
+aptos-wallet,Aptos,0
+bitgert-wallet,Bitgert,1
+moonbeam-wallet,Moonbeam,1
+near-wallet,NEAR,0
+acala-wallet,Acala,1
+canto-wallet,Canto,1
+zksync-era-wallet,zkSync Era,1
+zkevm-polygon-wallet,zkEvm Polygon,1
+arbitrum-nova-wallet,Arbitrum Nova,1
+sui-wallet,Sui,0
+pulsechain-wallet,PulseChain,1
+kava-wallet,Kava EVM,1
+ton-wallet,TON,0
+starknet-wallet,Starknet,1
+neo,NEO,1
+iota,IOTA,1
+digibyte,DigiByte,0
+bitcoin_sv,Bitcoin SV,0
+celsius,Celsius Network,0
+algorand,Algorand,0
+cosmos,Cosmos,1
+zilliqa,Zilliqa,1
+ontology,Ontology  (ONTO),1
+band_protocol,Band Protocol,1
+ethereum_classic,Ethereum Classic,1
+bnb_beacon,BNB Beacon Chain,1
+bitcoin_cash,Bitcoin Cash,0
+xrp,XRP,1
+litecoin,Litecoin,1
+dash,Dash,0
+cardano,Cardano,1
+vechain,VeChain,1
+tron,Tron,1
+waves,Waves,0
+eos,EOS,1
+tezos,Tezos,0
+stellar,Stellar,0
+polkadot,Polkadot,0
+bitcoin,Bitcoin,0
+ethereum,Ethereum,1
+base-wallet,Base,1
+linea-wallet,Linea,1
+opbnb-wallet,opBNB,1
+mantle-wallet,Mantle,1
+zora-wallet,Zora,1
+manta-wallet,Manta Pacific,1
+scroll-wallet,Scroll,1
+kaspa-wallet,Kaspa,0
+blast-wallet,Blast,1
+osmosis-wallet,Osmosis,1
+juno-wallet,Juno,0
+injective-wallet,Injective,1
+celestia-wallet,Celestia,0
+cronos-cosmos-wallet,Cronos (Pos),1
+sei-wallet,Sei,0
+kujira-wallet,Kujira,1
+akash-wallet,Akash,0
+dymension-evm-wallet,Dymension (EVM),1
+dymension-wallet,Dymension,1
+bittensor-wallet,BitTensor,1
+dydx-wallet,DyDx,0
+kava-cosmos-wallet,Kava (Cosmos),1
+fetch-wallet,Fetch.ai,1
+axelar-wallet,Axelar,1
+stride-wallet,Stride,0
+thorchain-wallet,THORChain,0
+evmos-cosmos-wallet,Evmos (Cosmos),1
+internet-computer-wallet,Internet Computer,1
+fio-wallet,FIO,1
+immutable-wallet,Immutable,1
+degen-wallet,Degen,1
+stacks-wallet,Stacks,1
+merlin-wallet,Merlin,1
+rootstock-wallet,Rootstock,1
+ronin-wallet,Ronin,1
+beam-wallet,Beam,1
+mode-wallet,Mode,1
+karak-wallet,Karak,1
