@@ -42,7 +42,7 @@ git clone https://github.com/iMarioChow/portfolio_manager.git
 Navigate to the project directory:
 ```bash
 cd portfolio_manager
-Install the required dependencies (if any):
+pip install requests pandas matplotlib openpyxl numpy
 ```
 
 ## Usage
@@ -74,9 +74,6 @@ This file stores the user's token holdings and other relevant data.
 ##Requirements
 To install the necessary packages for running the Portfolio Manager, use the following pip command:
 
-```bash
-pip install requests pandas matplotlib openpyxl numpy
-```
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
