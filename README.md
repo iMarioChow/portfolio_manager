@@ -21,9 +21,17 @@ portfolio_manager/
 │   ├── helpers.py
 │   └── coin_rating.csv
 ├── user/
-│   └── [user_name].json
+│   ├── json/
+│   │   └── [user_name].json
+│   ├── report/
+│   │   └── [user_name]_portfolio_report.xlsx
+│   ├── diagram/
+│       ├── [user_name]_portfolio_pie_chart.png
+│       └── [user_name]_portfolio_hexagon_diagram.png
 ├── main.py
 └── README.md
+
+
 ```
 ## Installation
 Clone the repository:
@@ -62,6 +70,13 @@ This file contains the Token Insight ratings for various tokens.
 
 [user_name].json
 This file stores the user's token holdings and other relevant data.
+
+##Requirements
+To install the necessary packages for running the Portfolio Manager, use the following pip command:
+
+```bash
+pip install requests pandas matplotlib openpyxl numpy
+```
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
