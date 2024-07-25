@@ -1,5 +1,8 @@
 import requests
 import json
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
 
 DEFAULT_COIN_STAT_API_KEY = "G9bXc1n6Gp6xgMBpPrdZi6R7BJ9R0HlUIg2n599/+EI="
 MIN_TOKEN_VALUE_USD = 0.2
@@ -63,12 +66,8 @@ def display_token_holdings(token_holdings):
     for token in token_summary:
         balanceUSD = token['balanceUSD']
         holding_percentage = (float(balanceUSD) / total_portfolio_value) * 100 if total_portfolio_value else 0
-        print(f"Token: {token.get('name')} ({token.get('symbol')})")
-        print(f"  Token Contract Address: {token.get('coinId')}")
-        print(f"  Holding Amount: {token.get('amount')}")
-        print(f"  Token Value (USD): {balanceUSD}")
-        print(f"  Holding Percentage: {holding_percentage:.2f}%")
-        print("-" * 50)
+
+
 
 def save_user_data(file_path, data):
     # Filter out tokens with balanceUSD less than MIN_TOKEN_VALUE_USD
@@ -89,31 +88,31 @@ def add_tokens(user_data, blockchains_file):
 
         if address.startswith("bc"):
             connection_id = "bitcoin"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("cosmos"):
             connection_id = "cosmos"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("inj"):
             connection_id = "injective-wallet"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("dym"):
             connection_id = "dymension-wallet"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("celestia"):
             connection_id = "celestia-wallet"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("osmo"):
             connection_id = "osmosis-wallet"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("stride"):
             connection_id = "stride-wallet"
-            chain_name = blockchains_df[blockchains_df['connectionId'] == connection_id]['name'].values[0]
+            chain_name = connection_id
             handle_address(address, connection_id, chain_name, user_data)
         elif address.startswith("0x"):
             is_evm = input("Is this an EVM address? (yes/no): ").strip().lower() == 'yes'
@@ -146,3 +145,32 @@ def handle_address(address, connection_id, chain_name, user_data):
         print(e)
     except Exception as e:
         print(f"Failed to retrieve data: {e}")
+
+
+def group_holdings(tokens):
+    grouped_data = {}
+    for token in tokens:
+        symbol = token['symbol']
+        if symbol in grouped_data:
+            grouped_data[symbol]['balanceUSD'] += token['balanceUSD']
+        else:
+            grouped_data[symbol] = {
+                'name': token['name'],
+                'symbol': token['symbol'],
+                'balanceUSD': token['balanceUSD']
+            }
+    return list(grouped_data.values())
+
+def save_report_csv(data, file_path):
+    df = pd.DataFrame(data)
+    df.to_csv(file_path, index=False)
+    print(f"Report saved to {file_path}")
+
+def plot_holdings(data):
+    df = pd.DataFrame(data)
+    df.plot(kind='bar', x='symbol', y='balanceUSD', legend=False)
+    plt.ylabel('USD Value')
+    plt.title('Portfolio Holdings')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()

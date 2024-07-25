@@ -69,22 +69,21 @@ def display_final_scores(final_scores):
     }
 
     total_portfolio_value = sum(score['balanceUSD'] for score in final_scores)
-    print(f"Total Portfolio Value (USD): {total_portfolio_value}")
-    print("-" * 50)
+
 
     for score in final_scores:
-        print(f"Token: {score['name']} ({score['symbol']})")
-        print(f"  Balance USD: {score['balanceUSD']}")
-        print(f"  Holding Percentage: {score['holding_percentage']:.2f}%")
-        print(f"  Rating Level: {score['rating_level']}")
-        print(f"  Rating Score: {score['rating_score']/score['holding_percentage']*100:.2f}")
-        print(f"  Underlying Technology Security: {score['underlying_technology_security']/score['holding_percentage']*100:.2f}")
-        print(f"  Token Performance: {score['token_performance']/score['holding_percentage']*100:.2f}")
-        print(f"  Ecosystem Development: {score['ecosystem_development']/score['holding_percentage']*100:.2f}")
-        print(f"  Team Partners & Investors: {score['team_partners_investors']/score['holding_percentage']*100:.2f}")
-        print(f"  Token Economics: {score['token_economics']/score['holding_percentage']*100:.2f}")
-        print(f"  Roadmap Progress: {score['roadmap_progress']/score['holding_percentage']*100:.2f}")
-        print("-" * 50)
+    #     print(f"Token: {score['name']} ({score['symbol']})")
+    #     print(f"  Balance USD: {score['balanceUSD']}")
+    #     print(f"  Holding Percentage: {score['holding_percentage']:.2f}%")
+    #     print(f"  Rating Level: {score['rating_level']}")
+    #     print(f"  Rating Score: {score['rating_score']/score['holding_percentage']*100:.2f}")
+    #     print(f"  Underlying Technology Security: {score['underlying_technology_security']/score['holding_percentage']*100:.2f}")
+    #     print(f"  Token Performance: {score['token_performance']/score['holding_percentage']*100:.2f}")
+    #     print(f"  Ecosystem Development: {score['ecosystem_development']/score['holding_percentage']*100:.2f}")
+    #     print(f"  Team Partners & Investors: {score['team_partners_investors']/score['holding_percentage']*100:.2f}")
+    #     print(f"  Token Economics: {score['token_economics']/score['holding_percentage']*100:.2f}")
+    #     print(f"  Roadmap Progress: {score['roadmap_progress']/score['holding_percentage']*100:.2f}")
+    #     print("-" * 50)
 
         overall_scores['rating_score'] += score['rating_score']
         overall_scores['underlying_technology_security'] += score['underlying_technology_security']
@@ -94,14 +93,14 @@ def display_final_scores(final_scores):
         overall_scores['token_economics'] += score['token_economics']
         overall_scores['roadmap_progress'] += score['roadmap_progress']
 
-    print("\nFinal Report:")
-    print(f"  Total Rating Score: {overall_scores['rating_score']}")
-    print(f"  Total Underlying Technology Security: {overall_scores['underlying_technology_security']}")
-    print(f"  Total Token Performance: {overall_scores['token_performance']}")
-    print(f"  Total Ecosystem Development: {overall_scores['ecosystem_development']}")
-    print(f"  Total Team Partners & Investors: {overall_scores['team_partners_investors']}")
-    print(f"  Total Token Economics: {overall_scores['token_economics']}")
-    print(f"  Total Roadmap Progress: {overall_scores['roadmap_progress']}")
+    # print("\nFinal Report:")
+    # print(f"  Total Rating Score: {overall_scores['rating_score']}")
+    # print(f"  Total Underlying Technology Security: {overall_scores['underlying_technology_security']}")
+    # print(f"  Total Token Performance: {overall_scores['token_performance']}")
+    # print(f"  Total Ecosystem Development: {overall_scores['ecosystem_development']}")
+    # print(f"  Total Team Partners & Investors: {overall_scores['team_partners_investors']}")
+    # print(f"  Total Token Economics: {overall_scores['token_economics']}")
+    # print(f"  Total Roadmap Progress: {overall_scores['roadmap_progress']}")
 
 def show_ratings(user_file, coin_ratings_file):
     user_data = load_user_data(user_file)
