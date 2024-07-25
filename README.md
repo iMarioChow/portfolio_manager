@@ -42,7 +42,7 @@ git clone https://github.com/iMarioChow/portfolio_manager.git
 Navigate to the project directory:
 ```bash
 cd portfolio_manager
-pip install requests pandas matplotlib openpyxl numpy
+pip install requests pandas matplotlib openpyxl xlsxwriter numpy
 ```
 
 ## Usage
